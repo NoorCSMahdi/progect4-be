@@ -3,7 +3,7 @@ const express= require('express');
 const router= express.Router();
 router.use(express.urlencoded({extended: true}));
 router.use(express.json());
-const AppointmentCntrl= require("../controllers/appointment");
+const AppointmentCntrl= require("../controller/appointment");
 // const isLoggedIn = require('../helper/isLoggedIn');
 
 
