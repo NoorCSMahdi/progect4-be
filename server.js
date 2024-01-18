@@ -38,9 +38,9 @@ app.use(express.static('public'))
 const userRouter = require("./routes/user");
 const companyRouter = require("./routes/company");
 const indexRouter =  require("./routes/index");
-const quotationRouter= require("./routes/index");
-const appointmentRouter=require("./routes/index");
-const categoriesRouter=require("./routes/index");
+const quotationRouter= require("./routes/quotation");
+const appointmentRouter=require("./routes/appointment");
+const categoriesRouter=require("./routes/categories");
 
 app.use("/", indexRouter);
 app.use("/user", userRouter);
