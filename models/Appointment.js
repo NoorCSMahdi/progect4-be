@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const quotationSchema = mongoose.Schema({
+const appointmentSchema = mongoose.Schema({
   // user: {
   //   type: mongoose.Schema.Types.ObjectId,
   //   ref:'User'
@@ -17,10 +17,8 @@ const quotationSchema = mongoose.Schema({
     // },
 // image: String,
     description:String,
-    location: String,
+    location: String, //location of meeting
     notes: String,
-    quantity: Number,
-    price:Number,
     // catagories: {
     // type: mongoose.Schema.Types.ObjectId,
     // ref:'Catagories'
@@ -29,6 +27,6 @@ const quotationSchema = mongoose.Schema({
   timestamps: true
 });
 
-const Quotation = mongoose.model("Quotation", quotationSchema);
+const Appointment= mongoose.model("Appointment", appointmentSchema);
 
-module.exports = { Quotation };
+module.exports = {Appointment};
