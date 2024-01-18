@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 
 const companySchema = mongoose.Schema({
   company_name: String,

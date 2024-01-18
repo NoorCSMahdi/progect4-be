@@ -1,5 +1,5 @@
 // API's/ Functions
-const User = require("../models/User")
+const User = require("../models/Users")
 const { json } = require("express");
 const bcrypt = require('bcryptjs');
 
