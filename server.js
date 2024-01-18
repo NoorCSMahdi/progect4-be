@@ -39,6 +39,8 @@ const userRouter = require("./routes/user");
 const companyRouter = require("./routes/company");
 
 //Mount Routes
+app.use('/user', userRouter),
+app.use('/company', companyRouter)
 
 
 app.listen(port, () => {
