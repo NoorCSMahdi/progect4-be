@@ -3,7 +3,7 @@ const express= require('express');
 const router= express.Router();
 router.use(express.urlencoded({extended: true}));
 router.use(express.json());
-const QuotationCntrl= require("../controller/quotation");
+const QuotationCntrl= require("../controllers/quotation");
 // const isLoggedIn = require('../helper/isLoggedIn');
 
 

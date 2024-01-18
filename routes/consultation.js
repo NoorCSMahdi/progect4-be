@@ -7,7 +7,7 @@ const router = express.Router();
 router.use(express.json());
 
 // Require courses controller
-const consultationCtrl = require('../controller/consultation');
+const consultationCtrl = require('../controllers/consultation');
 
 
 //Routs
