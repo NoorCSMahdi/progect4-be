@@ -1,29 +1,41 @@
-const mongoose = require('mongoose');
 
 const companySchema = mongoose.Schema({
   company_name: String,
   company_description: String,
-  company_image: String,
-  company_rate: Number,
-  company_latitude: String,
-  company_longtude: String,
   company_phoneNumber: Number,
   company_emailAddress: String,
+  company_rate: Number,
+  company_CAT: String,
+  company_images: String,
+  company_latitude: String,
+  company_longitude: String,
+  
+  working_hours: {
+    type: Map,
+    of: {
+      start_time: String,
+      end_time: String
+    }
+  },
+  
   working_days: [String], // Array to store the working days
+  
   User: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   }],
-  Car: [{
+  
+  Categories: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Car'
+    ref: 'Categories'
   }]
 }, {
   timestamps: true // means createdAt and updatedAt
 });
 
 // Creating Model
-const Exhibition = mongoose.model("Exhibition", companySchema);
+const Company = mongoose.model("Company", companySchema);
 
 // Export
-module.exports = { Exhibition };
+module.exports = { Company };
+

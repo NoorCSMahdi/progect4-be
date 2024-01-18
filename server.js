@@ -34,7 +34,8 @@ app.use(express.static('public'))
 // app.use('/uploads', express.static('public/uploads'))
 
 //Import Routes
-
+const userRouter = require("./routes/user");
+const companyRouter = require("./routes/company");
 
 //Mount Routes
 
