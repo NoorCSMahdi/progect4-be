@@ -5,7 +5,7 @@ const express = require("express");
 const router = express.Router();
 
 //Require our index controller
-const indexCntrl = require("../controller/index");
+const indexCntrl = require("../controllers/index");
 
 // Check if the user is logged in
 // const {checkType} = require("../config/checkType");
@@ -14,6 +14,6 @@ const indexCntrl = require("../controller/index");
 
 // //Routes
 // router.get("/", checkType(1), indexCntrl.index);
-router.get("/", indexCntrl.index);
+router.get('/',indexCntrl.index_get);
 
 module.exports = router;

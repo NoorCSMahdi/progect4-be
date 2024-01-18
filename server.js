@@ -37,6 +37,19 @@ app.use(express.static('public'))
 //Import Routes
 const userRouter = require("./routes/user");
 const companyRouter = require("./routes/company");
+const indexRouter =  require("./routes/index");
+const quotationRouter= require("./routes/index");
+const appointmentRouter=require("./routes/index");
+const categoriesRouter=require("./routes/index");
+
+app.use("/", indexRouter);
+app.use("/user", userRouter);
+app.use("/company", companyRouter);
+app.use("/quotation", quotationRouter);
+app.use("/appointment", appointmentRouter);
+app.use("/categories", categoriesRouter);
+
+
 
 //Mount Routes
 app.use('/user', userRouter),
