@@ -5,7 +5,7 @@ const express = require("express");
 const router = express.Router();
 
 //Require our index controller
-const indexCntrl = require("../controllers/index");
+const indexCntrl = require("../controller/index");
 
 // Check if the user is logged in
 // const {checkType} = require("../config/checkType");
