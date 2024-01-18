@@ -52,6 +52,8 @@ app.use("/categories", categoriesRouter);
 
 
 //Mount Routes
+app.use('/user', userRouter),
+app.use('/company', companyRouter)
 
 
 app.listen(port, () => {
