@@ -1,7 +1,7 @@
 // independence
 //load express
 const express = require('express');
-const expressLayouts = require("express-ejs-layouts");
+// const expressLayouts = require("express-ejs-layouts");
 
 // const fs = require('fs')
 const multer = require('multer')
@@ -38,6 +38,7 @@ const userRouter = require("./routes/user");
 const companyRouter = require("./routes/company");
 
 //Mount Routes
+
 
 app.listen(port, () => {
   console.log(`Voiture App is running on port ${port}`);
