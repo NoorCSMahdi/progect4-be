@@ -16,7 +16,6 @@ const appointmentSchema = mongoose.Schema({
     // ref:'Consultation'
     // },
 // image: String,
-    description:String,
     location: String, //location of meeting
     notes: String,
     // catagories: {
