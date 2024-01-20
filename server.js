@@ -57,6 +57,6 @@ app.use('/company', companyRouter)
 
 
 app.listen(port, () => {
-  console.log(`Concepr Build App is running on port ${port}`);
+  console.log(`Concept Build App running on Port \u001b[1;35m${port}\u001b[0m`);
 });
 
