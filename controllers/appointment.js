@@ -56,7 +56,7 @@ exports.appointment_show_get = (req,res) =>{
 }
 
 exports.appointment_delete_get = (req,res) =>{
-    console.log(req.query.id)
+    console.log(req.query)
     Appointment.findByIdAndDelete(req.query.id)
     .then((appointment) => {
         //res.redirect("/appointment/index");

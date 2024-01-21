@@ -6,6 +6,7 @@ const express = require('express');
 
 // const fs = require('fs')
 const multer = require('multer')
+const cloudinary = require('cloudinary')
 
 const upload = multer({ dest: 'images/' })
 
@@ -38,22 +39,25 @@ app.use(express.static('public'))
 const userRouter = require("./routes/user");
 const companyRouter = require("./routes/company");
 const indexRouter =  require("./routes/index");
-const quotationRouter= require("./routes/index");
-const appointmentRouter=require("./routes/index");
-const categoriesRouter=require("./routes/index");
+const quotationRouter= require("./routes/quotation");
+const appointmentRouter=require("./routes/appointment");
+const categoriesRouter=require("./routes/categories");
+const consultationRouter=require("./routes/consultation")
 
+// mount routes
 app.use("/", indexRouter);
 app.use("/user", userRouter);
 app.use("/company", companyRouter);
 app.use("/quotation", quotationRouter);
 app.use("/appointment", appointmentRouter);
 app.use("/categories", categoriesRouter);
+app.use("/consultations", consultationRouter);
 
 
 
-//Mount Routes
-app.use('/user', userRouter),
-app.use('/company', companyRouter)
+// //Mount Routes
+// app.use('/user', userRouter),
+// app.use('/company', companyRouter)
 
 
 app.listen(port, () => {
