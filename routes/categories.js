@@ -17,7 +17,7 @@ router.get("/index", categoriesCtrl.categories_index_get);
 router.get("/detail/:id", categoriesCtrl.categories_show_get);
 router.delete("/delete", categoriesCtrl.categories_delete_get);
 router.get("/edit", categoriesCtrl.categories_edit_get);
-router.put("/update", categoriesCtrl.categories_update_post);
+router.post("/update", categoriesCtrl.categories_update_post);
 
 
 
