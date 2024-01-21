@@ -62,8 +62,8 @@ exports.quotation_create_post = (req, res) => {
         .save()
         .then((savedQuotation) => {
             if (req.body.consultation && Array.isArray(req.body.consultation)) {
-                req.body.consultation.forEach((consultations) => {
-                    Consultation.findById(consultations)
+                req.body.consultation.forEach((consultation) => {
+                    Consultation.findById(consultation)
                         .then((oneConsultation) => {
                             if (oneConsultation) {
                                 oneConsultation.quotations.push(savedQuotation);
@@ -87,24 +87,22 @@ exports.quotation_create_post = (req, res) => {
 };
 
 
-exports.quotation_index_get = (req,res) => {
-Quotation.find()
-// .populate('consultation')
-.then((quotations)=> {
-    //res.render("quotation/index",{quotations});
-    res.json({quotations});
-})
-.catch((err)=> {
-    console.log(err);
-    //res.render('quotation/index',{quotations: []});
-    res.json({quotations: []});
-});
-}
 
+exports.quotation_index_get = (req, res) => {
+    Quotation.find()
+        .populate('consultation')
+        .then((quotations) => {
+            res.json({ quotations });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.json({ quotations: [] });
+        });
+};
 exports.quotation_show_get = (req,res) =>{
 console.log(req.query.id);
 Quotation.findById(req.query.id)
-// .populate('consultation')
+.populate('consultation')
 .then((quotation) => {
     //res.render("quotation/detail", {quotation})
     res.json({quotation})
@@ -129,7 +127,7 @@ console.log("Error is Cannot Updating " + err);
 
 exports.quotation_edit_get = (req,res) =>{
 Quotation.findById(req.query.id)
-// .populate('consultation')
+.populate('consultation')
 .then((quotation)=>{
     
 //res.render('quotation/edit',{quotation});
