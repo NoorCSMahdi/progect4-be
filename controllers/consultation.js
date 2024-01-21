@@ -32,6 +32,11 @@ exports.consultation_add_post = async (req, res) =>{
     console.log(req.body);  
     // new variable
     let consultations = new Consultation(req.body);
+// to include these fields in the land area everytime we add
+    // Consultation.consultation_land_area = {
+    //     width: req.body.consultation_land_area_width,
+    //     height: req.body.consultation_land_area_height
+    // };
 //    save the new variable consultations
     consultations.save()
     // the one we catch is here 
@@ -50,7 +55,6 @@ exports.consultation_add_post = async (req, res) =>{
 exports.consulation_index_get = (req, res) => {
     Consultation.find()
     // .populate('')
-
     .then((consultations) => {
         res.json({consultations})
     })
@@ -99,6 +103,12 @@ exports.consulation_edit_get = (req,res) => {
 
 exports.consultation_update_post = (req,res) => {
     console.log(req.body._id);
+    // trying to include these fields too
+    // const { consultation_land_area_width, consultation_land_area_height, ...updateData } = req.body;
+    // updateData.consultation_land_area = {
+    //     width: consultation_land_area_width,
+    //     height: consultation_land_area_height
+    // };
 
     Consultation.findByIdAndUpdate(req.body._id, req.body, {new: true})
     .then((consultations) => {

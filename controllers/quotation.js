@@ -88,7 +88,8 @@ exports.quotation_create_post = (req, res) => {
 
 
 exports.quotation_index_get = (req,res) => {
-Quotation.find().populate('consultation')
+Quotation.find()
+// .populate('consultation')
 .then((quotations)=> {
     //res.render("quotation/index",{quotations});
     res.json({quotations});
@@ -102,7 +103,8 @@ Quotation.find().populate('consultation')
 
 exports.quotation_show_get = (req,res) =>{
 console.log(req.query.id);
-Quotation.findById(req.query.id).populate('consultation')
+Quotation.findById(req.query.id)
+// .populate('consultation')
 .then((quotation) => {
     //res.render("quotation/detail", {quotation})
     res.json({quotation})
@@ -126,7 +128,8 @@ console.log("Error is Cannot Updating " + err);
 };
 
 exports.quotation_edit_get = (req,res) =>{
-Quotation.findById(req.query.id).populate('consultation')
+Quotation.findById(req.query.id)
+// .populate('consultation')
 .then((quotation)=>{
     
 //res.render('quotation/edit',{quotation});
