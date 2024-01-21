@@ -1,6 +1,6 @@
 
 const {Categories} = require('../models/Categories');
-const uploadCloudinary = require('../config/cloudinaryConfig');
+const uploadCloudinary = require('../config/cloudinary');
 const dayjs = require('dayjs');
 var relativeTime = require('dayjs/plugin/relativeTime')
 dayjs.extend(relativeTime)
