@@ -33,6 +33,12 @@ exports.consultation_add_post = async (req, res) =>{
     // new variable
     let consultations = new Consultation(req.body);
 // to include these fields in the land area everytime we add
+
+if (req.file) {
+    // Save the file path to the database
+    consultations.consultation_image = req.file.path;
+    console.log("Image path", "/uploads/" + req.file.filename)
+}
     // Consultation.consultation_land_area = {
     //     width: req.body.consultation_land_area_width,
     //     height: req.body.consultation_land_area_height
@@ -102,6 +108,8 @@ exports.consulation_edit_get = (req,res) => {
 }
 
 exports.consultation_update_post = (req,res) => {
+    console.log("update");
+
     console.log(req.body._id);
     // trying to include these fields too
     // const { consultation_land_area_width, consultation_land_area_height, ...updateData } = req.body;
@@ -109,9 +117,15 @@ exports.consultation_update_post = (req,res) => {
     //     width: consultation_land_area_width,
     //     height: consultation_land_area_height
     // };
+    let data = req.body;
+  if(req.file)
+  data.consultation_image = req.file.path;
+  else
+  data.consultation_image = data.consultation_image
 
     Consultation.findByIdAndUpdate(req.body._id, req.body, {new: true})
     .then((consultations) => {
+        console.log('update record');
         res.json({consultations})
     })
     .catch((err) => {
