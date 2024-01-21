@@ -30,7 +30,7 @@ exports.company_create_post = (req, res) => {
   // Handle file upload using multer
   if (req.file) {
     // Save the file path to the database
-    company.company_image = req.file.path;
+    company.company_images = req.file.path;
     console.log("Image path", "/uploads/" + req.file.filename)
 }
   // Save Company
