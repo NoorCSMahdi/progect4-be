@@ -24,11 +24,11 @@ const upload = require('../config/cloudinary');
 
 // Routes
 router.get("/add", companyCntrl.company_create_get);
-router.post("/add", upload.single('company_image'), companyCntrl.company_create_post);
+router.post("/add", upload.single('company_images'), companyCntrl.company_create_post);
 router.get("/index", companyCntrl.company_index_get);
 router.get("/detail", companyCntrl.company_show_get);
 router.delete("/delete", companyCntrl.company_delete_get);
 router.get("/edit", companyCntrl.company_edit_get);
-router.put("/update",upload.single('company_image'), companyCntrl.company_update_put);
+router.put("/update",upload.single('company_images'), companyCntrl.company_update_put);
 
 module.exports = router;
