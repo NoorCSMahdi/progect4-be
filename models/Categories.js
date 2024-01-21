@@ -1,6 +1,6 @@
 
 const mongoose = require('mongoose');
-const multer = require('multer')
+
 // Category Schema
 const categoriesSchema = mongoose.Schema({
 
