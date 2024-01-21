@@ -4,9 +4,11 @@ const multer = require('multer')
 // Category Schema
 const categoriesSchema = mongoose.Schema({
 
+
   name: { 
     type: String 
   },
+
 
   categories_image: {
     type: String,
