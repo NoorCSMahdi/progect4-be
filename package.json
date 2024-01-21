@@ -14,6 +14,7 @@
     "dayjs": "^1.11.10",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "express-json-router": "^0.6.7",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
     "method-override": "^3.0.0",
