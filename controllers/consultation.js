@@ -18,8 +18,8 @@ dayjs.extend(relativeTime)
 exports.consultation_add_get = (req, res) => {
     // grab data from model
     Consultation.find()
-    .then((consulation) => {
-        res.json({consulation})
+    .then((consultations) => {
+        res.json({consultations})
     })
     .catch((err) =>{
         console.log(err);
@@ -78,8 +78,8 @@ exports.consultation_show_get = (req, res) => {
 exports.consultation_delete_get = (req, res) => {
     console.log(req.query.id); 
     Consultation.findByIdAndDelete(req.query.id)
-    .then((consultation) => {
-        res.json({consultation})
+    .then((consultations) => {
+        res.json({consultations})
     })
     .catch((err) => {
         console.log(err);
