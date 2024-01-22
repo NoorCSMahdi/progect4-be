@@ -16,15 +16,18 @@ exports.appointment_create_get = (req, res) => {
 }
 
 exports.appointment_create_post = (req, res) => {
+    console.log('************************');
     console.log(req.body)
+    console.log('************************');
     let appointment= new Appointment(req.body);
 
 
 //save appointment
 appointment.save()
-.then((appointments) => {
+.then((newAppointment) => {
+    console.log(newAppointment);
     //res.redirect("/appointment/index");
-    res.json({appointments})
+    res.json({newAppointment})
 })
 .catch((err) => {
     console.log(err);
