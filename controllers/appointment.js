@@ -34,6 +34,7 @@ appointment.save()
 
 exports.appointment_index_get= (req,res) =>{
     Appointment.find()
+    .populate('consultation')
     .then((appointment) => {
        // res.render("appointment/index", {appointment});
        res.json({appointment});
@@ -46,6 +47,7 @@ exports.appointment_index_get= (req,res) =>{
 exports.appointment_show_get = (req,res) =>{
     console.log(req.query.id);
     Appointment.findById(req.query.id) //.populate('records')
+    .populate('consultation')
     .then((appointment) => {
         // res.render("appointment/detail", {appointment})
         res.json({appointment});
@@ -69,6 +71,7 @@ exports.appointment_delete_get = (req,res) =>{
 
 exports.appointment_edit_get = (req,res) =>{
     Appointment.findById(req.query.id)
+    .populate('consultation')
     .then((appointment) => {
         //res.render("appointment/edit", {appointment});
         res.json({appointment});
