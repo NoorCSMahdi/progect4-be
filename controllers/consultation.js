@@ -70,10 +70,11 @@ exports.consulation_index_get = (req, res) => {
 }
 
 // detail
+// changed from params to query
 exports.consultation_show_get = (req, res) => {
-    console.log(req.params.id);
+    console.log(req.query.id);
   
-    Consultation.findById(req.params.id)
+    Consultation.findById(req.query.id)
     .then((consultations) => {
         console.log(consultations)
         res.json({consultations, dayjs})
