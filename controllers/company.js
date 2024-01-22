@@ -46,7 +46,7 @@ exports.company_create_post = (req, res) => {
 }
 //Restful API
 exports.company_index_get = (req, res) => {
-  Company.find()
+  Company.find().populate('Categories')
   // .populate('Car')
   .then((companys) => {
     // res.render("company/index", {companys, dayjs});
@@ -60,7 +60,7 @@ exports.company_index_get = (req, res) => {
 
 exports.company_show_get = (req, res) => {
   console.log(req.query.id);
-  Company.findById(req.query.id)
+  Company.findById(req.query.id).populate('Categories')
   // .populate('Car')
   .then((company) => {
     console.log(company);
@@ -85,7 +85,7 @@ exports.company_delete_get = (req, res) => {
 }
 
 exports.company_edit_get = (req, res) => {
-  Company.findById(req.query.id)
+  Company.findById(req.query.id).populate('Categories')
   // .populate('Car')
   .then((company) => {
     // res.render("company/edit", {company});
