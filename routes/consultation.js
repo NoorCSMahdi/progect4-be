@@ -29,7 +29,8 @@ router.get("/add", consultationCtrl.consultation_add_get);
 // adding upload
 router.post("/add",upload.single('consultation_image'),consultationCtrl.consultation_add_post);
 router.get("/index", consultationCtrl.consulation_index_get);
-router.get("/detail/:id", consultationCtrl.consultation_show_get);
+// removed /:id
+router.get("/detail", consultationCtrl.consultation_show_get);
 router.delete("/delete", consultationCtrl.consultation_delete_get);
 router.get("/edit", consultationCtrl.consulation_edit_get);
 router.put("/update", upload.single('consultation_image'),consultationCtrl.consultation_update_post);

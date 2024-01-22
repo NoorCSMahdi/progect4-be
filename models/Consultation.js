@@ -42,7 +42,9 @@ const consultationSchema = mongoose.Schema(
         default: "",
       },
 
+      map_latitude: String,
       
+      map_longitude: String,
   
     },
     {
