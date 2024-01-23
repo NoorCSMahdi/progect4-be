@@ -32,6 +32,7 @@ exports.consultation_add_post = async (req, res) =>{
     console.log(req.body);  
     // new variable
     let consultations = new Consultation(req.body);
+    console.log(consultations)
 // to include these fields in the land area everytime we add
 
 if (req.file) {
