@@ -10,17 +10,7 @@ const quotationSchema = mongoose.Schema({
         ref:'Company'
         },
   time: String,
-  date: {
-    type: Date,
-    default: new Date(), // Sets the default value to the current date
-    validate: {
-      validator: function(date) {
-        // Validates that the date is not in the past
-        return date >= new Date();
-      },
-      alert: 'Date must be today or in the future.'
-    }
-  },
+  date: Date,
     consultation: {
     type: mongoose.Schema.Types.ObjectId,
     ref:'Consultation'
