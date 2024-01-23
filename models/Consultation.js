@@ -26,10 +26,14 @@ const consultationSchema = mongoose.Schema(
         required: true
       },
   
-      consultation_land_dimensions: {
-        type: Number,
-        // required: true
-      },
+      
+        width: String,   
+        
+        length: String,
+          
+        
+     
+      
 
       consultation_land_map: {
         type: String,
@@ -37,14 +41,6 @@ const consultationSchema = mongoose.Schema(
         // required: true
       },
 
-      consultation_land_autocad: {
-        type: String,
-        default: "",
-      },
-
-      map_latitude: String,
-      
-      map_longitude: String,
   
     },
     {

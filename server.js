@@ -8,22 +8,31 @@ const express = require('express');
 const multer = require('multer')
 const cloudinary = require('cloudinary')
 
-const upload = multer({ dest: 'images/' })
+// const upload = multer({ dest: 'images/' })
+const upload = multer({ dest: 'uploads/' })
+
 
 //require and initialize dotenv
 require('dotenv').config();
 //initialize express
+
+
 const app = express()
-app.use('/images', express.static('images'))
-app.post('/api/images', upload.single('image'), (req, res) => {
+// images
+app.use('/uploads', express.static('uploads'))
+app.post('/api/uploads', upload.single('image'), (req, res) => {
   const imageName = req.file.filename
   const description = req.body.description
+
+
 
   // Save this data to a database probably
 
   console.log(description, imageName)
   res.send({description, imageName})
 })
+
+// same process but for pdf
 
 
 //port configuration
