@@ -9,7 +9,11 @@ const consultationSchema = mongoose.Schema(
         type:mongoose.Schema.Types.ObjectId,
         ref: 'User'
       },
-  
+      
+        company: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref:'Company'
+            },
       consultation_description: {
         type: String,
         // required: true
