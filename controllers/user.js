@@ -2,6 +2,8 @@
 const User = require("../models/Users")
 const { json } = require("express");
 const bcrypt = require('bcryptjs');
+const salt = 10;
+
 
 // Create Operation
 exports.user_create_get = (req, res) => {
@@ -17,6 +19,13 @@ exports.user_create_post = (req, res) => {
     user.user_image = req.file.path;
     console.log("Image path", "/uploads/" + req.file.filename)
 }
+
+ //Declaring the Hash method for the password
+ let hash = bcrypt.hashSync(req.body.user_password, salt);
+ console.log(hash);
+
+ //Making the password Hash before saving the User Information
+ user.user_password = hash;
 
   // Save User
   user.save()
@@ -80,10 +89,10 @@ exports.user_edit_get = (req, res) => {
 // RESTful API
 exports.user_update_put = async (req, res) => {
   try {
-    console.log(req.body._id);
-
+    console.log(req.body);
+console.log(req.file.path);
     if (req.file) {
-      req.body.user_image = '/uploads/' + req.file.filename;
+      req.body.user_image = req.file.path ;
     }
 
     if (req.body.user_password) {

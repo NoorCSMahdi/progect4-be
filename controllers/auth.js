@@ -11,6 +11,7 @@ const jwt = require('jsonwebtoken');
 // Signing up Using Post (New User)
 exports.auth_signup_post = (req, res) => {
     let user = new User(req.body)
+    console.log(req.body)
     if (req.file) {
         // Save the file path to the database
         user.user_image = req.file.path;
@@ -46,8 +47,8 @@ exports.auth_signin_post = async (req, res) => {
         }
 
         //Password Comparison
-        // const isMatched = await bcrypt.compareSync(user_password, user.user_password);
-        const isMatched = user_password==user.user_password
+        const isMatched = await bcrypt.compareSync(user_password, user.user_password);
+        // const isMatched = user_password==user.user_password
          console.log(user_password);
         console.log(user.user_password);
 
