@@ -15,7 +15,7 @@ router.get("/detail", QuotationCntrl.quotation_show_get);
 router.get("/delete", QuotationCntrl.quotation_delete_get);
 router.get("/edit", QuotationCntrl.quotation_edit_get);
 router.post("/update", QuotationCntrl.quotation_update_post);
-
+router.get("/get",QuotationCntrl.quotation_by_user_get);
 
 module.exports = router;
 

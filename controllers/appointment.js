@@ -51,9 +51,10 @@ appointment.save()
 }
 
 exports.appointment_index_get= (req,res) =>{
-    const userId = req.query.id;  // Assuming the userId is passed as a parameter
-    console.log('userId',userId);
-    Appointment.find({ user: userId })
+    // const userId = req.query.id;  // Assuming the userId is passed as a parameter
+    // console.log('userId',userId);
+    Appointment.find()
+    //Appointment.find({ user: userId })
     .populate('consultation')
     .then((appointment) => {
        // res.render("appointment/index", {appointment});
