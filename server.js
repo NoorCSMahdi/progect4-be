@@ -52,11 +52,14 @@ const indexRouter =  require("./routes/index");
 const quotationRouter= require("./routes/quotation");
 const appointmentRouter=require("./routes/appointment");
 const categoriesRouter=require("./routes/categories");
-const consultationRouter=require("./routes/consultation")
+const consultationRouter=require("./routes/consultation");
+const requestRouter=require("./routes/request");
+
 
 // mount routes
 app.use("/", indexRouter);
 app.use("/auth",authRouter);
+app.use("/request", requestRouter);
 app.use("/user", userRouter);
 app.use("/company", companyRouter);
 app.use("/quotation", quotationRouter);

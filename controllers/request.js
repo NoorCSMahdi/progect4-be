@@ -1,6 +1,6 @@
 // API's/ Functions
 
-const {User} = require("../models/User")
+const {User} = require("../models/Users")
 const {Request} = require("../models/Request")
 
 const dayjs = require('dayjs')

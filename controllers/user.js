@@ -90,7 +90,6 @@ exports.user_edit_get = (req, res) => {
 exports.user_update_put = async (req, res) => {
   try {
     console.log(req.body);
-console.log(req.file.path);
     if (req.file) {
       req.body.user_image = req.file.path ;
     }
