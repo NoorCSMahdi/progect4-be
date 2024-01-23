@@ -4,6 +4,7 @@ const {Quotation} = require("../models/Quotation");
 const {Consultation} = require("../models/Consultation");
 
 
+
 // CRUD operations
 //HTTP POST- Create - Post the data 
 // HTTP GET - Read - Retrieves the data
@@ -89,7 +90,9 @@ exports.quotation_create_post = (req, res) => {
 
 
 exports.quotation_index_get = (req, res) => {
-    Quotation.find()
+    const userId = req.query.id;  // Assuming the userId is passed as a parameter
+console.log('userId',userId);
+    Quotation.find({ user: userId }) // Use the user property to filter by user id
         .populate('consultation')
         .then((quotations) => {
             res.json({ quotations });

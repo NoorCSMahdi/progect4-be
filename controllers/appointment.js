@@ -24,10 +24,25 @@ exports.appointment_create_post = (req, res) => {
 
 //save appointment
 appointment.save()
-.then((newAppointment) => {
-    console.log(newAppointment);
-    //res.redirect("/appointment/index");
-    res.json({newAppointment})
+.then((savedAppointment) => {
+    if (req.body.consultation && Array.isArray(req.body.consultation)) {
+        req.body.consultation.forEach((consultation) => {
+            Consultation.findById(consultation)
+                .then((oneConsultation) => {
+                    if (oneConsultation) {
+                        oneConsultation.appointments.push(savedAppointment);
+                        oneConsultation.save().catch((err) => {
+                            console.log(err);
+                        });
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        });
+    }
+
+    res.json({ appointment: savedAppointment });
 })
 .catch((err) => {
     console.log(err);
@@ -36,7 +51,9 @@ appointment.save()
 }
 
 exports.appointment_index_get= (req,res) =>{
-    Appointment.find()
+    const userId = req.query.id;  // Assuming the userId is passed as a parameter
+    console.log('userId',userId);
+    Appointment.find({ user: userId })
     .populate('consultation')
     .then((appointment) => {
        // res.render("appointment/index", {appointment});
