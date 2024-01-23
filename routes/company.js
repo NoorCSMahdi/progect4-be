@@ -31,4 +31,7 @@ router.delete("/delete", companyCntrl.company_delete_get);
 router.get("/edit", companyCntrl.company_edit_get);
 router.put("/update",upload.single('company_images'), companyCntrl.company_update_put);
 
+router.get("/get", companyCntrl.company_by_cat_get);
+
+
 module.exports = router;
