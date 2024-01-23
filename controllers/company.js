@@ -58,6 +58,22 @@ exports.company_index_get = (req, res) => {
 
 }
 
+//Restful API
+exports.company_by_cat_get = (req, res) => {
+  console.log("req.query.cat_id", req.query.cat_id)
+  Company.find({"Categories": req.query.cat_id}).populate('Categories')
+  // .populate('Car')
+  .then((companys) => { 
+    console.log("companys", companys)
+    // res.render("company/index", {companys, dayjs});
+    res.json({ companys })
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+
+}
+
 exports.company_show_get = (req, res) => {
   console.log(req.query.id);
   Company.findById(req.query.id).populate('Categories')
