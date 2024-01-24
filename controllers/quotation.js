@@ -106,7 +106,15 @@ exports.quotation_index_get = (req, res) => {
 //Restful API
 exports.quotation_by_user_get = (req, res) => {
     console.log("req.query._id", req.query.user_id)
-    Quotation.find({"user": req.query.user_id}).populate('user')
+    console.log("req.query.userType", req.query.userType)
+    let search=null;
+    if(req.query.userType==='User'){
+        search= "user";
+    }else{
+        //
+        search= 'consultation.company';
+    }
+    Quotation.find({search: req.query.user_id}).populate('user')
     // .populate('Car')
     .then((quotations) => { 
       console.log("quotations", quotations)
