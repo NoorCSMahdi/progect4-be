@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
 require("dotenv").config();
+const User = require("../models/Users")
 
-module.exports = (req, res, next) => {
+module.exports = async (req, res, next) => {
     let token =""
     let authorizationToken = req.header("Authorization");
     console.log(authorizationToken);
@@ -19,6 +20,17 @@ module.exports = (req, res, next) => {
         const decoded = jwt.verify(token, process.env.SECRET);
 
         req.user = decoded.user;
+        if(req.user.hasOwnProperty("id")){
+            const userdata = await User.findOne({
+                "_id":req.user.id
+            })
+
+                
+                req.user = {...JSON.parse(JSON.stringify(userdata)), ...req.user};
+              // res.render("user/index", {users});
+              //res.json({users})
+
+        }
         next();
     }
 
