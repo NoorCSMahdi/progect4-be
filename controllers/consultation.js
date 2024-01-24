@@ -1,6 +1,7 @@
 // import from model
 const {Consultation} = require('../models/Consultation');
 // const {User} = require('../models/User');
+const {Company}= require('../models/Consultation');
 
 
 // dayjs
@@ -134,3 +135,20 @@ exports.consultation_update_post = (req,res) => {
         console.log(err);
     })
 }
+
+
+
+//Restful API
+exports.consulation_by_company_get = (req, res) => {
+    console.log("req.query.company_id", req.query.company_id)
+    Consultation.find({"company": req.query.company_id}).populate('company')
+    // .populate('Car')
+    .then((consultations) => {
+      console.log("consulations", consultations)
+      // res.render("company/index", {consulations, dayjs});
+      res.json({ consultations })
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
