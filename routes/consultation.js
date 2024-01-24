@@ -36,6 +36,7 @@ router.get("/edit", consultationCtrl.consulation_edit_get);
 router.put("/update", upload.single('consultation_image'),consultationCtrl.consultation_update_post);
 
 router.get("/get", consultationCtrl.consulation_by_company_get);
+router.get("/consultationDetails", consultationCtrl.consulation_consultationDetails);
 
 
 
