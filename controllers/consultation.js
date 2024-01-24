@@ -2,7 +2,7 @@
 const {Consultation} = require('../models/Consultation');
 // const {User} = require('../models/User');
 const {Company}= require('../models/Consultation');
-
+const {Quotation}= require('../models/Quotation');
 
 // dayjs
 const dayjs = require('dayjs');
@@ -147,6 +147,21 @@ exports.consulation_by_company_get = (req, res) => {
       console.log("consulations", consultations)
       // res.render("company/index", {consulations, dayjs});
       res.json({ consultations })
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
+
+
+  exports.consulation_consultationDetails = (req, res) => {
+    console.log("req.query.consultation_id", req.query.consultation_id)
+    Quotation.find({"consultation": req.query.consultation_id}).populate('consultation')
+    // .populate('Car')
+    .then((quotation) => {
+      console.log("quotation", quotation)
+      // res.render("company/index", {consulations, dayjs});
+      res.json({ quotation })
     })
     .catch((err) => {
       console.log(err);
