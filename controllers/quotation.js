@@ -90,9 +90,9 @@ exports.quotation_create_post = (req, res) => {
 
 
 exports.quotation_index_get = (req, res) => {
-    // const userId = req.query.id;  // Assuming the userId is passed as a parameter
-// console.log('userId',userId);
-    //Quotation.find({ user: userId }) // Use the user property to filter by user id
+    // const userId = req.body;  // Assuming the userId is passed as a parameter
+    // console.log('userId',userId);
+    // Quotation.find({ user: userId }) // Use the user property to filter by user id
     Quotation.find()     
     .populate('consultation')
         .then((quotations) => {
@@ -106,7 +106,7 @@ exports.quotation_index_get = (req, res) => {
 //Restful API
 exports.quotation_by_user_get = (req, res) => {
     console.log("req.query._id", req.query.user_id)
-    Company.find({"User": req.query.user_id}).populate('User')
+    Quotation.find({"user": req.query.user_id}).populate('user')
     // .populate('Car')
     .then((quotations) => { 
       console.log("quotations", quotations)
