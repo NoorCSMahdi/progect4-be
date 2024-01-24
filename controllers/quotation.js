@@ -2,8 +2,7 @@
 
 const {Quotation} = require("../models/Quotation");
 const {Consultation} = require("../models/Consultation");
-
-
+const mongoose = require("mongoose");
 
 // CRUD operations
 //HTTP POST- Create - Post the data 
@@ -108,13 +107,29 @@ exports.quotation_by_user_get = (req, res) => {
     console.log("req.query._id", req.query.user_id)
     console.log("req.query.userType", req.query.userType)
     let search=null;
-    if(req.query.userType==='User'){
-        search= "user";
+    console.log("Req.user",req.user)
+
+    if(req.user.userType==='CompanyOwner'){
+        search={};
+
+        // Get the company the user belongs to
+
+        // Build search query where company matches the quotations
+        // search={"company"=?????}
+
+        
+    }else if(req.user.userType==="Admin"){
+        search= {};
+
     }else{
-        //
-        search= 'consultation.company';
+            // General User
+            const objectId = req.user.id
+
+            search={"user":objectId}
+            console.log("USER USER USER",search)
+
     }
-    Quotation.find({search: req.query.user_id}).populate('user')
+    Quotation.find( search).populate('user')
     // .populate('Car')
     .then((quotations) => { 
       console.log("quotations", quotations)
