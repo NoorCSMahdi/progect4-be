@@ -26,7 +26,11 @@ exports.company_create_post = (req, res) => {
   // console.log("data", data)
   console.log("req.body", req.body.company_name);
   console.log("req.file", req.file);
+
+  console.log("req.body", req.body.UserId);
   let company = new Company(req.body);
+  company.User = req.body.UserId
+
   // Handle file upload using multer
   if (req.file) {
     // Save the file path to the database

@@ -54,7 +54,7 @@ exports.quotation_create_get = (req,res) =>{
 
 
 exports.quotation_create_post = (req, res) => {
-    console.log(req.body);
+    console.log("req.body for quotations --- ", req.body);
     let quotation = new Quotation(req.body);
 
     // Save quotation

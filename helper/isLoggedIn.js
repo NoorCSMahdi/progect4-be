@@ -5,11 +5,11 @@ const User = require("../models/Users")
 module.exports = async (req, res, next) => {
     let token =""
     let authorizationToken = req.header("Authorization");
-    console.log(authorizationToken);
+    console.log("authorizationToken", authorizationToken);
 
     if(authorizationToken){
         token = authorizationToken.replace("Bearer ", "");
-        console.log(token);
+        console.log("token", token);
     }
 
     if(!token){
