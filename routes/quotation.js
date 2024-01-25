@@ -13,9 +13,9 @@ router.post("/add", isLoggedIn,QuotationCntrl.quotation_create_post);
 router.get("/index", isLoggedIn,QuotationCntrl.quotation_index_get);
 router.get("/detail", isLoggedIn,QuotationCntrl.quotation_show_get);
 router.get("/delete", isLoggedIn,QuotationCntrl.quotation_delete_get);
-router.get("/edit", isLoggedIn,QuotationCntrl.quotation_edit_get);
-router.post("/update", isLoggedIn,QuotationCntrl.quotation_update_post);
-router.get("/get",isLoggedIn,QuotationCntrl.quotation_by_user_get);
+router.get("/edit", QuotationCntrl.quotation_edit_get);
+router.post("/update",QuotationCntrl.quotation_update_post);
+router.get("/get",QuotationCntrl.quotation_by_user_get);
 
 module.exports = router;
 
